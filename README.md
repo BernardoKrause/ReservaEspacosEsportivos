@@ -33,7 +33,6 @@ Este sistema foi desenvolvido com o objetivo de otimizar o uso de espaços espor
 ### Pré-requisitos
 
 Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
-* 
-    * [Git](https://git-scm.com/downloads)
-    * [Node.js](https://nodejs.org/en/download/package-manager)
-    * [PostgreSQL para o banco de dados](https://www.postgresql.org/)
+* [Git](https://git-scm.com/downloads)
+* [Node.js](https://nodejs.org/en/download/package-manager)
+* [PostgreSQL para o banco de dados](https://www.postgresql.org/)
