@@ -36,3 +36,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 * [Git](https://git-scm.com/downloads)
 * [Node.js](https://nodejs.org/en/download/package-manager)
 * [PostgreSQL para o banco de dados](https://www.postgresql.org/)
+
+## Licença
+
+Este projeto está licenciado sob GNU General Public License v2.0 - veja o arquivo LICENSE para mais detalhes.

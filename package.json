@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  },
+  "name": "reservaespacosesportivos",
+  "description": "O Sistema de Reserva de Espaços Esportivos é uma aplicação web desenvolvida para facilitar o gerenciamento de reservas de quadras e outros espaços esportivos. Ele permite que usuários visualizem, agendem, cancelem e alterem reservas de forma eficiente, além de garantir que não ocorram conflitos de horários entre diferentes reservas.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
