@@ -10,7 +10,7 @@ const tipoEspacoController = {
         }
     },
 
-    listTipoEspacoById: async (req,res) => {
+    listTipoEspacoById: async (req,res, next) => {
         try {
             id = req.params.id
             const tipoEspaco = await TipoEspacoModel.getTipoEspaco(id);
