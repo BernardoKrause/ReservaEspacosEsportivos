@@ -9,17 +9,6 @@ const TipoEspaco = {
         } catch (err) {
             throw err;
         }
-    },
-
-    createNewTipoEspaco: async (nome, codEspaco) => {
-        try {
-            const query = 'INSERT INTO TipoEspaco (nome, codEspaco) VALUES ($1, $2) RETURNING *';
-            const values = [nome, codEspaco];
-            const result = await db.query(query, values);
-            return result.rows[0];
-        } catch (err) {
-            throw err;
-        }
     }
 };
 
