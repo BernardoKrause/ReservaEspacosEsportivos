@@ -18,7 +18,17 @@ const Espaco = {
         } catch (error) {
             throw err;
         }
-    }
+    },
+
+    selectByTipo: async (codTipoEspaco) => {
+        try {
+            const query = `SELECT * FROM Espaco where codTipoEspaco = ${codTipoEspaco}`;
+            const result = await db.query(query);
+            return result.rows;
+        } catch (err) {
+            throw err;
+        }
+    },
 };
 
 module.exports = Espaco;
