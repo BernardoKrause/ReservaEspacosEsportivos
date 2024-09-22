@@ -40,7 +40,7 @@ const Reserva = {
         } catch (err) {
             throw err;
         }
-    }
+    },
 };
 
 module.exports = Reserva;

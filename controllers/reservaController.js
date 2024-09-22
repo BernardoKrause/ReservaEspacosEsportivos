@@ -1,16 +1,16 @@
-const ReservaModel = requiRe('../models/ReservaModel');
+const ReservaModel = require('../models/ReservaModel');
 
 const reservaController = {
-    getAllreservas: async (req, res) => {
+    getAllReservas: async (req, res) => {
         try {
-            const reservas = await ReservaModel.getAllreservas();
+            const reservas = await ReservaModel.getAllReservas();
             res.status(200).json(reservas);
         } catch (error) {
             res.status(500).json({ error: 'Erro ao obter lista de Reserva.'});
         }
     },
 
-    createNewreserva: async(req, res, next) => {
+    createNewReserva: async(req, res, next) => {
         try{
             const { dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco} = req.body;
             const reserva = await ReservaModel.createNewReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco);
@@ -21,7 +21,7 @@ const reservaController = {
         }
     },
 
-    updatereserva: async(req, res, next) => {
+    updateReserva: async(req, res, next) => {
         const {codReserva, dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco} = req.body;
         try{
             const reserva = await ReservaModel.updateReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco);
@@ -32,7 +32,7 @@ const reservaController = {
         }
     },
 
-    updateSituacaoreserva: async(req, res, next) => {
+    updateSituacaoReserva: async(req, res, next) => {
         const { codReserva, situacao } = req.body;
         try{
             const reserva = await ReservaModel.updateSituacaoReserva(codReserva, situacao);

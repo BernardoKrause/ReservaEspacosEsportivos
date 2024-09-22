@@ -1,16 +1,16 @@
-const UsuarioModel = requiRe('../models/UsuarioModel');
+const UsuarioModel = require('../models/UsuarioModel');
 
 const usuarioController = {
-    getAllusuarios: async (req, res) => {
+    getAllUsuarios: async (req, res) => {
         try {
-            const usuarios = await UsuarioModel.getAllusuarios();
+            const usuarios = await UsuarioModel.getAllUsuarios();
             res.status(200).json(usuarios);
         } catch (error) {
             res.status(500).json({ error: 'Erro ao obter lista de usuario.'});
         }
     },
 
-    createNewusuario: async(req, res, next) => {
+    createNewUsuario: async(req, res, next) => {
         try{
             const {codReserva, nomeUsuario, emailUsuario, telefoneUsuario, cpfUsuario} = req.body;
             const usuario = await UsuarioModel.createNewUsuario(codReserva, nomeUsuario, emailUsuario, telefoneUsuario, cpfUsuario);
