@@ -10,13 +10,13 @@ const tipoEspacoController = {
         }
     },
 
-    createNewTipoEspaco: async (req, res) => {
-        const { nome, codEspaco } = req.body;
+    listTipoEspacoById: async (req,res, next) => {
         try {
-            const newTipoEspaco = await TipoEspacoModel.createNewTipoEspaco(nome, codEspaco);
-            res.status(201).json(newTipoEspaco);
+            id = req.params.id
+            const tipoEspaco = await TipoEspacoModel.getTipoEspaco(id);
+            res.status(200).json(tipoEspaco);
         } catch (error) {
-            res.status(500).json({error: 'Erro ao criar novo tipo de espaço.'})
+            res.status(500).json({ error: 'Erro ao obter tipo de espaço.' });
         }
     }
 };

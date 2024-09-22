@@ -9,6 +9,15 @@ const TipoEspaco = {
         } catch (err) {
             throw err;
         }
+    },
+    getTipoEspaco: async (id) => {
+        try {
+            const query = `SELECT * FROM TipoEspaco WHERE codTipoEspaco = ${id}`
+            const result = await db.query(query);
+            return result.rows;
+        } catch (error) {
+            throw err;
+        }
     }
 };
 

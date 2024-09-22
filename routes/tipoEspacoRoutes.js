@@ -5,6 +5,6 @@ const router = express.Router();
 
 router
     .get('/api/tipoEspacos', tipoEspacoController.getAllTipoEspacos)
-    .post('/api/tipoEspacos', tipoEspacoController.createNewTipoEspaco)
+    .get('/api/tipoEspacos/:id', tipoEspacoController.listTipoEspacoById)
 
 module.exports = router;
