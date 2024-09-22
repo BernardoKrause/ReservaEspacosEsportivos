@@ -10,7 +10,7 @@ const reservaController = {
         }
     },
 
-    createreserva: async(req, res, next) => {
+    createNewreserva: async(req, res, next) => {
         try{
             const { dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco} = req.body;
             const reserva = await ReservaModel.createNewReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco);

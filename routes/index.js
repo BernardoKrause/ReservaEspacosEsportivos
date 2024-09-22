@@ -2,6 +2,8 @@ const express = require('express');
 const tiposEspaco = require('./tipoEspacoRoutes')
 const enderecos = require('./enderecoRoutes')
 const espacos = require('./espacosRoutes')
+const reservas = require('./reservaRoutes')
+const usuarios = require('./usuarioRoutes')
 
 const routes = (app) => {
     app.route('/').get((req,res) => {
@@ -12,7 +14,9 @@ const routes = (app) => {
         express.json(),
         tiposEspaco,
         enderecos,
-        espacos
+        espacos,
+        reservas,
+        usuarios
     )
 }
 

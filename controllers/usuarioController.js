@@ -10,7 +10,7 @@ const usuarioController = {
         }
     },
 
-    createusuario: async(req, res, next) => {
+    createNewusuario: async(req, res, next) => {
         try{
             const {codReserva, nomeUsuario, emailUsuario, telefoneUsuario, cpfUsuario} = req.body;
             const usuario = await UsuarioModel.createNewUsuario(codReserva, nomeUsuario, emailUsuario, telefoneUsuario, cpfUsuario);
