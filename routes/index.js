@@ -3,6 +3,8 @@ const tiposEspaco = require('./tipoEspacoRoutes')
 const enderecos = require('./enderecoRoutes')
 const espacos = require('./espacosRoutes')
 const cidades = require('./cidadeRoutes')
+const reservas = require('./reservaRoutes')
+const usuarios = require('./usuarioRoutes')
 
 const routes = (app) => {
     app.route('/').get((req,res) => {
@@ -15,6 +17,9 @@ const routes = (app) => {
         enderecos,
         espacos,
         cidades,
+        reservas,
+        usuarios
+
     )
 }
 
