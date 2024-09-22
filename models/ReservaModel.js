@@ -32,19 +32,9 @@ const Reserva = {
         }
     },
 
-    confirmReserva: async(codReserva) =>{
+    updateSituacaoReserva: async(codReserva, situacao) =>{
         try{
-            const query = `UPDATE Reserva SET situacao = C WHERE codReserva = ${codReserva}` ;
-            result = await db.query(query);
-            return result.rows[0];
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    deniedReserva: async(codReserva) =>{
-        try{
-            const query = `UPDATE Reserva SET situacao = N WHERE codReserva = ${codReserva}` ;
+            const query = `UPDATE Reserva SET situacao = ${situacao} WHERE codReserva = ${codReserva}` ;
             result = await db.query(query);
             return result.rows[0];
         } catch (err) {
