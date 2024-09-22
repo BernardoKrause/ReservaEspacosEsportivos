@@ -3,7 +3,7 @@ const UsuarioModel = require('../models/UsuarioModel');
 const usuarioController = {
     getAllUsuarios: async (req, res) => {
         try {
-            const usuarios = await UsuarioModel.getAllUsuarios;
+            const usuarios = await UsuarioModel.getAllUsuarios();
             res.status(200).json(usuarios);
         } catch (error) {
             res.status(500).json({ error: 'Erro ao obter lista de usuario.'});
