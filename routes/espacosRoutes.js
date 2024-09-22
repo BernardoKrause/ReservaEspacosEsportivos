@@ -5,6 +5,6 @@ const router = express.Router();
 
 router
     .get('/api/espacos', espacoController.getAllEspacos)
-    .post('/api/espacos', espacoController.createNewEspaco)
+    .get('/api/espacos/:id', espacoController.listEspacoById)
 
 module.exports = router;
