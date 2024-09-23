@@ -1,4 +1,4 @@
-const UsuarioModel = requiRe('../models/UsuarioModel');
+const UsuarioModel = require('../models/UsuarioModel');
 
 const usuarioController = {
     getAllusuarios: async (req, res) => {
