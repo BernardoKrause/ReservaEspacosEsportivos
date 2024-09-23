@@ -12,7 +12,7 @@ const Espaco = {
     },
     getEspaco: async (id) => {
         try {
-            const query = `SELECT * FROM Espaco WHERE codEspaco = ${id}`
+            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE codEspaco = ${id}`
             const result = await db.query(query);
             return result.rows;
         } catch (error) {
@@ -22,7 +22,7 @@ const Espaco = {
 
     selectByTipo: async (codTipoEspaco) => {
         try {
-            const query = `SELECT * FROM Espaco JOIN TipoEspaco ON Espaco.codEspaco = TipoEspaco.codEspaco WHERE codTipoEspaco = ${codTipoEspaco}`;
+            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco JOIN TipoEspaco ti ON es.codEspaco = ti.codEspaco WHERE codTipoEspaco = ${codTipoEspaco}`;
             const result = await db.query(query);
             return result.rows;
         } catch (err) {
@@ -32,7 +32,7 @@ const Espaco = {
 
     selectByCapacidade: async (capacidade) => {
         try{
-            const query = `SELECT * FROM Espaco WHERE capacidade >= ${capacidade}`
+            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE capacidade >= ${capacidade}`
         }catch(err){
             throw err;
         }
