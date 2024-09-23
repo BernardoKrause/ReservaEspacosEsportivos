@@ -3,7 +3,7 @@ const db = require('../config/db');
 const Espaco = {
     getAllEspacos: async () => {
         try {
-            const query = 'SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco';
+            const query = 'SELECT en.logradouro, en.bairro, en.numeroEndereco, es.codEspaco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco';
             const result = await db.query(query);
             return result.rows;
         } catch (err) {

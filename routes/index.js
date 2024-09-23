@@ -1,5 +1,6 @@
 const express = require('express');
 const tiposEspaco = require('./tipoEspacoRoutes')
+const tipos = require('./tipoRoutes')
 const enderecos = require('./enderecoRoutes')
 const espacos = require('./espacosRoutes')
 const cidades = require('./cidadeRoutes')
@@ -18,6 +19,7 @@ const routes = (app) => {
         espacos,
         cidades,
         reservas,
+        tipos,
         usuarios
 
     )
