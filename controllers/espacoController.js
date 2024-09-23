@@ -22,7 +22,7 @@ const espacoController = {
 
     listEspacoByTipo: async(req, res, next) => {
         try{
-            idTipo= req.body.codTipo;
+            idTipo = req.params.idTipo;
             const espaco = await EspacoModel.selectByTipo(idTipo);
             res.status(200).json(espaco);
         }catch (error){
@@ -32,7 +32,7 @@ const espacoController = {
     
     listEspacoByCapacidade: async(req, res, next) => {
         try{
-            capacidade= req.body.capacidade;
+            capacidade= req.params.capacidade;
             const espaco = await EspacoModel.selectByCapacidade(capacidade);
             res.status(200).json(espaco);
         }catch (error){
