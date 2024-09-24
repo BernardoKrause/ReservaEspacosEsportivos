@@ -12,8 +12,8 @@ const reservaController = {
 
     createNewReserva: async(req, res, next) => {
         try{
-            const { dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco} = req.body;
-            const reserva = await ReservaModel.createNewReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco);
+            const { dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo} = req.body;
+            const reserva = await ReservaModel.createNewReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo);
             res.status(200).json(reserva);
         } catch (error){
             res.status(500).json({ error: 'Erro ao criar Reserva.' });
@@ -22,9 +22,9 @@ const reservaController = {
     },
 
     updateReserva: async(req, res, next) => {
-        const {codReserva, dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco} = req.body;
+        const {codReserva, dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo} = req.body;
         try{
-            const reserva = await ReservaModel.updateReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco);
+            const reserva = await ReservaModel.updateReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo);
             res.status(200).json(reserva);
         } catch (error){
             res.status(500).json({ error: `Erro ao atualizar a Reserva ${codReserva}.` });
