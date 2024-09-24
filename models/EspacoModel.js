@@ -10,6 +10,16 @@ const Espaco = {
             throw err;
         }
     },
+    getAllNomeEspacos: async () => {
+        try {
+            const query = 'SELECT codEspaco, nomeEspaco FROM Espaco';
+            const result = await db.query(query);
+            return result.rows;
+        } catch (err) {
+            throw err;
+        }
+    },
+
     getEspaco: async (id) => {
         try {
             const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE codEspaco = ${id}`
