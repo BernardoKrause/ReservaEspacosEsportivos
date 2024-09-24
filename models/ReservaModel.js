@@ -11,10 +11,10 @@ const Reserva = {
         }
     },
 
-    createNewReserva: async (dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipoEspaco) => {
+    createNewReserva: async (dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo) => {
         try {
-            const query = 'INSERT INTO Reserva (dataReserva, descricao, horaInicio, horaTermino, situacao, codEspaco, codTipoEspaco) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
-            const values = [dataReserva, descricao, horaInicio, horaTermino, "A", codEspaco, codTipoEspaco];
+            const query = 'INSERT INTO Reserva (dataReserva, descricao, horaInicio, horaTermino, situacao, codEspaco, codTipo) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+            const values = [dataReserva, descricao, horaInicio, horaTermino, "A", codEspaco, codTipo];
             const result = await db.query(query, values);
             return result.rows[0];
         } catch (err) {
@@ -22,9 +22,9 @@ const Reserva = {
         }
     },
 
-    updateReserva: async(codReserva ,dataReserva, descricao, horaInicio, horaTermino, codTipoEspaco) => {
+    updateReserva: async(codReserva ,dataReserva, descricao, horaInicio, horaTermino, codTipo) => {
         try{
-            const query = `UPDATE Reserva SET dataReserva = ${dataReserva}, descricao = ${descricao}, horaInicio = ${horaInicio}, horaTermino = ${horaTermino}, codeTipoEspaco = ${codTipoEspaco}, situacao = A WHERE codReserva = ${codReserva}` ;
+            const query = `UPDATE Reserva SET dataReserva = ${dataReserva}, descricao = ${descricao}, horaInicio = ${horaInicio}, horaTermino = ${horaTermino}, codeTipo = ${codTipo}, situacao = A WHERE codReserva = ${codReserva}` ;
             result = await db.query(query);
             return result.rows[0];
         } catch (err) {
