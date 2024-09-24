@@ -8,5 +8,6 @@ router
     .post('/api/reservas', reservaController.createNewReserva)
     .put('/api/reserva/:codReserva', reservaController.updateReserva)
     .patch('/api/reserva/:codReserva/situacao', reservaController.updateSituacaoReserva)
+    .delete('/api/reserva/:codReserva', reservaController.deleteReserva)
 
 module.exports = router;

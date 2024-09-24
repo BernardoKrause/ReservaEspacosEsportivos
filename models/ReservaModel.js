@@ -41,6 +41,16 @@ const Reserva = {
             throw err;
         }
     },
+
+    deleteReserva: async (codReserva) => {
+        try{
+            const query = `DELETE FROM Reserva WHERE codReserva = $1`;
+            result = await db.query(query, [codReserva]);
+            return result.rowCount > 0 ? result.rows[0] : null;
+        }catch(err){
+            throw err;
+        }
+    },
 };
 
 module.exports = Reserva;
