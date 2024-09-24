@@ -7,5 +7,6 @@ router
     .get('/api/tipos', tipoController.getAllTipos)
     .get('/api/tipos/:id', tipoController.listTipoById)
     .get('/api/tipos/espaco/:idEspaco', tipoController.listTipoByidEspaco)
+    .get('/api/tipos/nomes', tipoController.listTipoNome)
 
 module.exports = router;

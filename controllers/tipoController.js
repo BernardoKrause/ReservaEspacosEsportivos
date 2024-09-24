@@ -28,6 +28,15 @@ const tipoController = {
         } catch (error) {
             res.status(500).json({ error: 'Erro ao obter a lista de tipos desse espaço.' });
         }
+    },
+
+    listTipoNome: async (req,res, next) => {
+        try {
+            const tipo = await TipoModel.getNomeTipo();
+            res.status(200).json(tipo);
+        } catch (error) {
+            res.status(500).json({ error: 'Erro ao obter a lista de tipos desse espaço.' });
+        }
     }
 };
 
