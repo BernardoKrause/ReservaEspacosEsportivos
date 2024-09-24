@@ -41,7 +41,19 @@ const reservaController = {
             res.status(500).json({ error: `Erro ao atualizar a Situação da reserva ${codReserva}.` });
 
         }
+    },
+
+    deleteReserva: async(req, res, next) => {
+        const{codReserva} = req.params;
+        try{
+            const reserva = await ReservaModel.deleteReserva(codReserva);
+            res.status(200).json(reserva); 
+
+        } catch (error){
+            res.status(500).json ({error:`Erro ao excluir a Reserva ${codReserva}.`});
+        }
     }
+
 };
 
 module.exports = reservaController;
