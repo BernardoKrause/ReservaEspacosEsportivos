@@ -12,11 +12,21 @@ const tipoController = {
 
     listTipoById: async (req,res, next) => {
         try {
-            id = req.params.id
+            id = req.params.id;
             const tipo = await TipoModel.getTipo(id);
             res.status(200).json(tipo);
         } catch (error) {
             res.status(500).json({ error: 'Erro ao obter tipo de espaço.' });
+        }
+    },
+
+    listTipoByidEspaco: async (req,res, next) => {
+        try {
+            id = req.params.idEspaco;
+            const tipo = await TipoModel.getAllTiposbyEspaco(id);
+            res.status(200).json(tipo);
+        } catch (error) {
+            res.status(500).json({ error: 'Erro ao obter a lista de tipos desse espaço.' });
         }
     }
 };
