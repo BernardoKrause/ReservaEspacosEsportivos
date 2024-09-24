@@ -50,6 +50,7 @@ O projeto utiliza as seguintes dependências principais:
 * Express.js: Framework para construção do servidor HTTP e manipulação de rotas.
 * PostgreSQL: Banco de dados relacional utilizado para armazenar as informações do sistema.
 * dotenv: Carrega variáveis de ambiente a partir de um arquivo .env.
+* CORS: Permite a outros realizarem requisições à API.
 
 Para visualizar todas as dependências, consulte o arquivo package.json.
 
