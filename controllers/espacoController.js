@@ -10,6 +10,15 @@ const espacoController = {
         }
     },
 
+    getAllNomeEspacos: async (req, res) => {
+        try {
+            const espacos = await EspacoModel.getAllNomeEspacos();
+            res.status(200).json(espacos);
+        } catch (error) {
+            res.status(500).json({ error: 'Erro ao obter lista dos nomes dos espaços.'});
+        }
+    },
+
     listEspacoById: async (req,res, next) => {
         try {
             id = req.params.id;
