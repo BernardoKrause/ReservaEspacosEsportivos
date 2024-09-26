@@ -51,6 +51,16 @@ const Reserva = {
             throw err;
         }
     },
+
+    getDataHoraReserva: async (codEspaco,codTipo) =>{
+        try{
+            const query = `SELECT dataReserva,horaInicio,horaTermino FROM Reserva WHERE codEspaco=${codEspaco} and codTipo=${codTipo}`;
+            result = await db.query(query);
+            return result.rowCount > 0 ? result.rows[0] : null;
+        }catch(err){
+            throw err;
+        }
+    },
 };
 
 module.exports = Reserva;

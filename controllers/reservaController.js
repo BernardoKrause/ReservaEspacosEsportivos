@@ -52,6 +52,16 @@ const reservaController = {
         } catch (error){
             res.status(500).json ({error:`Erro ao excluir a Reserva ${codReserva}.`});
         }
+    },
+
+    getAlldatahoraByTipoEspaco: async(req, res, next) => {
+        try{
+            const reserva = await ReservaModel.getDataHoraReserva(req.body.codEspaco,req.body.codTipo);
+            res.status(200).json(reserva); 
+
+        } catch (error){
+            res.status(500).json ({error:`Erro ao listar horas e dadas das Reservas no espaco.`});
+        }
     }
 
 };
