@@ -9,5 +9,6 @@ router
     .put('/api/reserva/:codReserva', reservaController.updateReserva)
     .patch('/api/reserva/:codReserva/situacao', reservaController.updateSituacaoReserva)
     .delete('/api/reserva/:codReserva', reservaController.deleteReserva)
+    .get('/api/reservas/horas', reservaController.getAlldatahoraByTipoEspaco)
 
 module.exports = router;
