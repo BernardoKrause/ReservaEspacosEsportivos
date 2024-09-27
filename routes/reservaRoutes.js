@@ -10,5 +10,6 @@ router
     .patch('/api/reserva/:codReserva/situacao', reservaController.updateSituacaoReserva)
     .delete('/api/reserva/:codReserva', reservaController.deleteReserva)
     .get('/api/reservas/horas', reservaController.getAlldatahoraByTipoEspaco)
+    .get('/api/reservas/:codEspaco/:codTipo', reservaController.getAlldatahoraByTipoEspaco)
 
 module.exports = router;

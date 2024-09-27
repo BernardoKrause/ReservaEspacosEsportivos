@@ -55,9 +55,11 @@ const reservaController = {
     },
 
     getAlldatahoraByTipoEspaco: async(req, res, next) => {
+        const codEspaco = req.params.codEspaco;
+        const codTipo = req.params.codTipo;
         try{
-            const reserva = await ReservaModel.getDataHoraReserva(req.body.codEspaco,req.body.codTipo);
-            res.status(200).json(reserva); 
+            const reservas = await ReservaModel.getDataHoraReserva(codEspaco,codTipo);
+            res.status(200).json(reservas); 
 
         } catch (error){
             res.status(500).json ({error:`Erro ao listar horas e dadas das Reservas no espaco.`});
