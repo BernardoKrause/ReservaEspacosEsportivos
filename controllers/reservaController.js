@@ -62,7 +62,18 @@ const reservaController = {
             res.status(200).json(reservas); 
 
         } catch (error){
-            res.status(500).json ({error:`Erro ao listar horas e dadas das Reservas no espaco.`});
+            res.status(500).json({error:`Erro ao listar horas e dadas das Reservas no espaco.`});
+        }
+    },
+
+    getReserva: async(req, res, next) => {
+        const codReserva = req.params.codReserva;
+
+        try {
+            const reserva = await ReservaModel.getReservaById(codReserva);
+            res.status(200).json(reserva);
+        } catch (error) {
+            res.status(500).json({error:"Erro ao listar reserva."});
         }
     }
 

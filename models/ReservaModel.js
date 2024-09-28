@@ -54,10 +54,20 @@ const Reserva = {
 
     getDataHoraReserva: async (codEspaco,codTipo) =>{
         try{
-            const query = `SELECT dataReserva,horaInicio,horaTermino FROM Reserva WHERE codEspaco=${codEspaco} and codTipo = ${codTipo}`;
+            const query = `SELECT codReserva,dataReserva,horaInicio,horaTermino FROM Reserva WHERE codEspaco=${codEspaco} and codTipo = ${codTipo}`;
             result = await db.query(query);
             return result.rows;
         }catch(err){
+            throw err;
+        }
+    },
+
+    getReservaById: async (codReserva) => {
+        try {
+            const query = `SELECT * FROM Reserva WHERE codReserva = ${codReserva}`;
+            result = await db.query(query);
+            return result.rows;
+        } catch (error) {
             throw err;
         }
     }
