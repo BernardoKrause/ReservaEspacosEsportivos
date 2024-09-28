@@ -11,5 +11,6 @@ router
     .delete('/api/reserva/:codReserva', reservaController.deleteReserva)
     .get('/api/reservas/horas', reservaController.getAlldatahoraByTipoEspaco)
     .get('/api/reservas/:codEspaco/:codTipo', reservaController.getAlldatahoraByTipoEspaco)
+    .get('/api/reservas/:codReserva', reservaController.getReserva);
 
 module.exports = router;
