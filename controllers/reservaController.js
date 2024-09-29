@@ -22,23 +22,13 @@ const reservaController = {
     },
 
     updateReserva: async(req, res, next) => {
-        const {codReserva, dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo} = req.body;
+        const codReserva = req.params.codReserva;
         try{
-            const reserva = await ReservaModel.updateReserva(dataReserva, descricao, horaInicio, horaTermino, codEspaco, codTipo);
+            const { dataReserva, descricao, horaInicio, horaTermino} = req.body;
+            const reserva = await ReservaModel.updateReserva(codReserva, dataReserva, descricao, horaInicio, horaTermino);
             res.status(200).json(reserva);
         } catch (error){
-            res.status(500).json({ error: `Erro ao atualizar a Reserva ${codReserva}.` });
-
-        }
-    },
-
-    updateSituacaoReserva: async(req, res, next) => {
-        const { codReserva, situacao } = req.body;
-        try{
-            const reserva = await ReservaModel.updateSituacaoReserva(codReserva, situacao);
-            res.status(200).json(reserva);
-        } catch (error){
-            res.status(500).json({ error: `Erro ao atualizar a Situação da reserva ${codReserva}.` });
+            res.status(500).json({ error: `Erro ao atualizar a Reserva` });
 
         }
     },
