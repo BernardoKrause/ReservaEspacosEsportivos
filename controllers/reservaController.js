@@ -75,6 +75,16 @@ const reservaController = {
         } catch (error) {
             res.status(500).json({error:"Erro ao listar reserva."});
         }
+    },
+
+    getReservaByEspaco: async(req, res, next) => {
+        const codEspaco = req.params.codEspaco;
+        try {
+            const reserva = await ReservaModel.getReservasByEspaco(codEspaco);
+            res.status(200).json(reserva);
+        } catch (error) {
+            res.status(500).json({error:"Erro ao listar reserva."});
+        }
     }
 
 };
