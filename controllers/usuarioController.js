@@ -19,6 +19,16 @@ const usuarioController = {
             res.status(500).json({ error: 'Erro ao criar o Usuario dessa reserva.' });
 
         }
+    },
+
+    getUsuarioByReserva: async(req, res, next) => {
+        try {
+            const codReserva = req.params.codReserva;
+            const usuario = await UsuarioModel.getUsuarioByCodReserva(codReserva);
+            res.status(200).json(usuario);
+        } catch (error) {
+            res.status(500).json({ error: 'Erro ao obter usuário.' });
+        }
     }
 };
 

@@ -44,7 +44,7 @@ const reservaController = {
     },
 
     deleteReserva: async(req, res, next) => {
-        const{codReserva} = req.params.codReserva;
+        const codReserva = req.params.codReserva;
         try{
             const reserva = await ReservaModel.deleteReserva(codReserva);
             res.status(200).json(reserva); 

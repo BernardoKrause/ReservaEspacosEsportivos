@@ -20,6 +20,16 @@ const Usuario = {
         } catch (err) {
             throw err;
         }
+    },
+
+    getUsuarioByCodReserva: async (codReserva) => {
+        try {
+            const query = `SELECT * FROM Usuario WHERE codReserva = ${codReserva}`;
+            const result = await db.query(query);
+            return result.rows;
+        } catch (err) {
+            throw err;
+        }
     }
 };
 
