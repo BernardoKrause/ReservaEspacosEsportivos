@@ -22,20 +22,20 @@ const Reserva = {
         }
     },
 
-    updateReserva: async(codReserva ,dataReserva, descricao, horaInicio, horaTermino, codTipo) => {
-        try{
-            const query = `UPDATE Reserva SET dataReserva = ${dataReserva}, descricao = ${descricao}, horaInicio = ${horaInicio}, horaTermino = ${horaTermino}, codeTipo = ${codTipo}, situacao = A WHERE codReserva = ${codReserva}` ;
-            result = await db.query(query);
-            return result.rows[0];
-        } catch (err) {
-            throw err;
-        }
-    },
-
-    updateSituacaoReserva: async(codReserva, situacao) =>{
-        try{
-            const query = `UPDATE Reserva SET situacao = ${situacao} WHERE codReserva = ${codReserva}` ;
-            result = await db.query(query);
+    updateReserva: async (codReserva, dataReserva, descricao, horaInicio, horaTermino) => {
+        try {
+            const query = `
+                UPDATE Reserva
+                SET dataReserva = COALESCE($1, dataReserva),
+                    descricao = COALESCE($2, descricao),
+                    horaInicio = COALESCE($3, horaInicio),
+                    horaTermino = COALESCE($4, horaTermino)
+                WHERE codReserva = $5
+                RETURNING *`;
+            
+            const values = [dataReserva, descricao, horaInicio, horaTermino, codReserva];
+            const result = await db.query(query, values);
+            
             return result.rows[0];
         } catch (err) {
             throw err;
@@ -64,7 +64,7 @@ const Reserva = {
 
     getReservaById: async (codReserva) => {
         try {
-            const query = `SELECT * FROM Reserva WHERE codReserva = ${codReserva}`;
+            const query = `SELECT * FROM Reserva re JOIN Usuario us ON re.codReserva=us.codReserva JOIN Tipo ti ON re.codTipo=ti.codTipo JOIN Espaco es ON es.codEspaco = re.codEspaco WHERE re.codReserva = ${codReserva}`;
             result = await db.query(query);
             return result.rows;
         } catch (error) {
