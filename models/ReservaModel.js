@@ -70,6 +70,15 @@ const Reserva = {
         } catch (error) {
             throw err;
         }
+    },
+    getReservasByEspaco: async (codEspaco) => {
+        try{
+            const query = `SELECT RS.codReserva, RS.dataReserva,RS.horaInicio,RS.horaTermino, RS.descricao, ES.nomeEspaco, TP.nomeTipo FROM Reserva AS RS JOIN Espaco AS ES on ES.codEspaco = RS.codEspaco JOIN TIPO AS TP ON TP.codTipo = RS.codTipo WHERE RS.codEspaco = ${codEspaco}`;
+            result = await db.query(query);
+            return result.rows;
+        }catch(err){
+            throw err;
+        }
     }
 };
 

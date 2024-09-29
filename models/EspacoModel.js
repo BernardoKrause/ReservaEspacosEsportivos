@@ -32,7 +32,7 @@ const Espaco = {
 
     selectByTipo: async (codTipo) => {
         try {
-            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE es.codEspaco IN (SELECT te.codEspaco FROM TipoEspaco te WHERE te.codTipo = ${codTipo})`;
+            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.codEspaco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE es.codEspaco IN (SELECT te.codEspaco FROM TipoEspaco te WHERE te.codTipo = ${codTipo})`;
             const result = await db.query(query);
             return result.rows;
         } catch (err) {
@@ -42,7 +42,7 @@ const Espaco = {
 
     selectByCapacidade: async (capacidade) => {
         try{
-            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE capacidade >= ${capacidade}`
+            const query = `SELECT en.logradouro, en.bairro, en.numeroEndereco, es.codEspaco, es.nomeEspaco, es.horarioAbertura, es.horarioFechamento, es.capacidade FROM Espaco es JOIN Endereco en ON es.codEndereco = en.codEndereco WHERE capacidade >= ${capacidade}`
             const result = await db.query(query);
             return result.rows;
         }catch(err){
